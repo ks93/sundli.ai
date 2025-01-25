@@ -4,7 +4,7 @@ export default function Home() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center space-y-8">
+    <main className="h-full flex flex-col items-center justify-center space-y-8">
       <h1 className="text-4xl font-bold tracking-tight">sundli.ai</h1>
       
       <div className="flex flex-col items-center space-y-4">

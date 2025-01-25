@@ -22,9 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${GeistSans.className} bg-black text-white antialiased min-h-screen`}>
-        <main className="mx-auto max-w-4xl px-4 py-8">
+    <html lang="en" className="dark h-full">
+      <body className={`${GeistSans.className} bg-black text-white antialiased h-full`}>
+        <main className="mx-auto max-w-4xl px-4 py-8 h-full">
           {children}
         </main>
         <CommandMenu />
