@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
@@ -9,15 +11,15 @@ export default function Home() {
         <p className="text-muted-foreground">Press <kbd className="px-2 py-1 text-sm rounded bg-secondary text-secondary-foreground">⌘ K</kbd> to start</p>
         
         <div className="flex gap-4">
-          <a href="/essays" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+          <Link href="/essays" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
             Essays
-          </a>
-          <a href="/projects" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+          </Link>
+          <Link href="/projects" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
             Projects
-          </a>
-          <a href="/contact" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+          </Link>
+          <Link href="/contact" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
             Contact
-          </a>
+          </Link>
         </div>
       </div>
 
