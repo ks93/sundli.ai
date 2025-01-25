@@ -36,3 +36,30 @@ To deploy your own version:
 2. Enable GitHub Pages in your repository settings
 3. Configure the GitHub Actions workflow for deployment
 4. Push changes to the main branch to trigger automatic deployment
+
+## Adding an Essay
+
+To add a new essay to the website, follow these steps:
+
+1. Create a new `.mdx` file in the `src/app/essays/content/` directory.
+2. Add the required frontmatter to the top of the file. The frontmatter should include the following fields:
+   - `title`: The title of the essay
+   - `date`: The date of the essay in `YYYY-MM-DD` format
+   - `description`: A brief description of the essay
+   - `tags`: An array of tags related to the essay
+
+   Example frontmatter:
+   ```mdx
+   ---
+   title: "Your Essay Title"
+   date: "YYYY-MM-DD"
+   description: "A brief description of your essay"
+   tags: ["tag1", "tag2", "tag3"]
+   ---
+   ```
+
+3. Write the content of your essay below the frontmatter.
+
+4. As a starting point, you can copy the `example-essay.mdx.txt` file from the `src/app/essays/content/` directory and modify it as needed.
+
+Once you save the file, the new essay will automatically appear in the essays list on the website.
