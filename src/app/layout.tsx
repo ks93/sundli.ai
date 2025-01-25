@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${GeistSans.className} bg-black text-white antialiased h-screen overflow-hidden`}>
-        <div className="mx-auto max-w-4xl px-4 py-8 h-full">
+    <html lang="en" className="dark h-full">
+      <body className={`${GeistSans.className} bg-black text-white antialiased h-full`}>
+        <main className="mx-auto max-w-4xl px-4 py-8 h-full">
           {children}
-        </div>
+        </main>
         <CommandMenu />
       </body>
     </html>
