@@ -2,10 +2,11 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getEssayBySlug, getAllEssays } from '@/lib/essays';
 
-interface Props {
+type Props = {
     params: {
         slug: string;
-    };
+    }
+    searchParams: { [key: string]: string | string[] | undefined }
 }
 
 // Generate static pages for all essays at build time
