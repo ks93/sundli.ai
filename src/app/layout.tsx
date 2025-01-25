@@ -23,10 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${GeistSans.className} bg-black text-white antialiased h-screen overflow-hidden`}>
-        <div className="mx-auto max-w-4xl px-4 py-8 h-full">
+      <body className={`${GeistSans.className} bg-black text-white antialiased min-h-screen`}>
+        <main className="mx-auto max-w-4xl px-4 py-8">
           {children}
-        </div>
+        </main>
         <CommandMenu />
       </body>
     </html>
