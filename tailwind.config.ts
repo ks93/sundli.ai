@@ -70,38 +70,8 @@ const config: Config = {
         "fade-in": "fade-in 0.2s ease-in-out",
         "fade-out": "fade-out 0.2s ease-in-out",
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: 'none',
-            color: 'hsl(var(--foreground))',
-            a: {
-              color: 'hsl(var(--primary))',
-              '&:hover': {
-                color: 'hsl(var(--primary))',
-              },
-            },
-            'h1,h2,h3,h4,h5,h6': {
-              color: 'hsl(var(--foreground))',
-            },
-            code: {
-              color: 'hsl(var(--foreground))',
-              backgroundColor: 'hsl(var(--muted))',
-              padding: '0.25rem 0.4rem',
-              borderRadius: '0.25rem',
-              fontWeight: '500',
-            },
-            'code::before': {
-              content: '""',
-            },
-            'code::after': {
-              content: '""',
-            },
-          },
-        },
-      },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [],
 };
 export default config;
