@@ -4,8 +4,8 @@ export default function Contact() {
       <div className="container max-w-3xl py-10">
         <h1 className="text-4xl font-bold tracking-tight">Get in touch</h1>
         <ul className="list-disc list-inside">
-          <li>Email: kelvin[at]sundli.ai</li>
-          <li>Phone: +47 993 44 356</li>
+          <li>kelvin[at]sundli.ai</li>
+          <li>+47 993 44 356</li>
         </ul>
       </div>
     </main>
