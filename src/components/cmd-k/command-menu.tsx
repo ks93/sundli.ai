@@ -10,21 +10,25 @@ const shortcuts = [
     title: "Home",
     onSelect: () => "/",
     keywords: "home main landing",
+    hotkey: "h"
   },
   {
     title: "Essays",
     onSelect: () => "/essays",
     keywords: "writing blog posts articles",
+    hotkey: "e"
   },
   {
     title: "Projects",
     onSelect: () => "/projects",
     keywords: "work portfolio code",
+    hotkey: "p"
   },
   {
     title: "Contact",
     onSelect: () => "/contact",
     keywords: "email message reach",
+    hotkey: "c"
   },
 ]
 
@@ -39,11 +43,19 @@ export function CommandMenu() {
         e.preventDefault()
         setOpen((open) => !open)
       }
+
+      shortcuts.forEach(shortcut => {
+        if (e.key === shortcut.hotkey && (e.metaKey || e.ctrlKey)) {
+          e.preventDefault()
+          router.push(shortcut.onSelect())
+          setOpen(false)
+        }
+      })
     }
 
     document.addEventListener('keydown', down)
     return () => document.removeEventListener('keydown', down)
-  }, [])
+  }, [router])
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
