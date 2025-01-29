@@ -1,0 +1,38 @@
+[
+  {
+    "title": "DEMO/TEST: The Future of AI Development",
+    "description": "Exploring the evolving landscape of AI development and its implications for software engineers",
+    "slug": "/essays/future-of-ai-development",
+    "type": "essay",
+    "icon": "📝",
+    "keywords": [
+      "AI",
+      "Software Development",
+      "Technology"
+    ]
+  },
+  {
+    "title": "DEMO/TEST: The Power of Static Site Generation",
+    "description": "Why static site generation is making a comeback and how it's changing web development",
+    "slug": "/essays/static-site-generation",
+    "type": "essay",
+    "icon": "📝",
+    "keywords": [
+      "Static Sites",
+      "Performance",
+      "JAMstack"
+    ]
+  },
+  {
+    "title": "DEMO/TEST: Web Development Trends in 2024",
+    "description": "A comprehensive look at the latest trends shaping web development in 2024",
+    "slug": "/essays/web-development-2024",
+    "type": "essay",
+    "icon": "📝",
+    "keywords": [
+      "Web Development",
+      "JavaScript",
+      "Frontend"
+    ]
+  }
+]
