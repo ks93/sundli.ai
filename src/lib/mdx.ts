@@ -16,6 +16,10 @@ export interface Essay {
 const ESSAYS_PATH = path.join(process.cwd(), 'src/content/essays');
 
 export async function getAllEssays(): Promise<Essay[]> {
+  if (!fs.existsSync(ESSAYS_PATH)) {
+    return [];
+  }
+
   const files = fs.readdirSync(ESSAYS_PATH);
 
   const essays = files.map((fileName) => {
@@ -48,4 +52,4 @@ export async function getEssayBySlug(slug: string): Promise<Essay | null> {
   } catch {
     return null;
   }
-} 
+}

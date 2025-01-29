@@ -2,6 +2,7 @@ import { compareDesc } from 'date-fns';
 import Link from 'next/link';
 import { getAllEssays, type Essay } from '@/lib/mdx';
 import { Metadata } from 'next';
+import styles from './essays.module.css';
 
 export const metadata: Metadata = {
   title: 'Essays | sundli.ai',
@@ -20,41 +21,42 @@ export default async function EssaysPage() {
   );
 
   return (
-    <div className="container max-w-3xl py-10">
-      <h1 className="text-3xl font-bold mb-8">Essays</h1>
-      <div className="space-y-8">
-        {sortedEssays.map((essay: Essay) => (
-          <article key={essay.slug} className="group">
-            <Link href={`/essays/${essay.slug}`}>
-              <div className="space-y-3">
-                <h2 className="text-2xl font-semibold group-hover:text-primary transition-colors">
-                  {essay.frontmatter.title}
-                </h2>
-                <p className="text-muted-foreground">
-                  {essay.frontmatter.description}
-                </p>
-                <div className="flex gap-2">
-                  {essay.frontmatter.tags.map((tag: string) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+    <div className={styles.container}>
+      <h1 className={styles.title}>Essays</h1>
+      <div className={styles.essayList}>
+        {sortedEssays.length === 0 ? (
+          <p>No essays available</p>
+        ) : (
+          sortedEssays.map((essay: Essay) => (
+            <article key={essay.slug} className={styles.article}>
+              <Link href={`/essays/${essay.slug}`}>
+                <div className={styles.essayContent}>
+                  <h2 className={styles.essayTitle}>
+                    {essay.frontmatter.title}
+                  </h2>
+                  <p className={styles.essayDescription}>
+                    {essay.frontmatter.description}
+                  </p>
+                  <div className={styles.tags}>
+                    {essay.frontmatter.tags.map((tag: string) => (
+                      <span key={tag} className={styles.tag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className={styles.essayDate}>
+                    {new Date(essay.frontmatter.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {new Date(essay.frontmatter.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </p>
-              </div>
-            </Link>
-          </article>
-        ))}
+              </Link>
+            </article>
+          ))
+        )}
       </div>
     </div>
   );
-} 
+}
