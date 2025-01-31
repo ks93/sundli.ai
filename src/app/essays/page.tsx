@@ -2,6 +2,7 @@ import { compareDesc } from 'date-fns';
 import Link from 'next/link';
 import { getAllEssays, type Essay } from '@/lib/mdx';
 import { Metadata } from 'next';
+import { PageContainer } from '@/components/layout/page-container';
 
 export const metadata: Metadata = {
   title: 'Essays | sundli.ai',
@@ -20,8 +21,10 @@ export default async function EssaysPage() {
   );
 
   return (
-    <div className="container max-w-3xl py-10">
-      <h1 className="text-3xl font-bold mb-8">Essays</h1>
+    <PageContainer 
+      title="Essays" 
+      description="Collection of essays on AI, software development, and technology"
+    >
       <div className="space-y-8">
         {sortedEssays.map((essay: Essay) => (
           <article key={essay.slug} className="group">
@@ -55,6 +58,6 @@ export default async function EssaysPage() {
           </article>
         ))}
       </div>
-    </div>
+    </PageContainer>
   );
 } 
