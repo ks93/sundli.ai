@@ -34,6 +34,7 @@ const shortcuts = [
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false)
+  const [value, setValue] = useState('')
   const router = useRouter()
 
   // Toggle the menu when ⌘K is pressed
@@ -63,7 +64,7 @@ export function CommandMenu() {
         <Dialog.Overlay className="fixed inset-0 bg-black/50 animate-fade-in" />
         <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] w-[90vw] bg-background border border-border rounded-lg shadow-lg p-2 animate-fade-in">
           <Dialog.Title className="sr-only">Command Menu</Dialog.Title>
-          <Command>
+          <Command value={value} onValueChange={setValue} shouldFilter={true}>
             <Command.Input 
               className="w-full bg-transparent border-none outline-none p-4 text-foreground placeholder:text-muted-foreground"
               placeholder="Type a command or search..." 
@@ -75,11 +76,13 @@ export function CommandMenu() {
               {shortcuts.map((shortcut) => (
                 <Command.Item
                   key={shortcut.title}
+                  value={shortcut.title}
+                  keywords={shortcut.keywords.split(' ')}
                   onSelect={() => {
                     router.push(shortcut.onSelect())
                     setOpen(false)
                   }}
-                  className="p-4 rounded-md text-sm text-foreground hover:bg-secondary cursor-pointer flex items-center justify-between"
+                  className="p-4 rounded-md text-sm text-foreground hover:bg-secondary cursor-pointer flex items-center justify-between data-[selected=true]:bg-secondary"
                 >
                   <span>{shortcut.title}</span>
                   <kbd className="ml-auto text-xs text-muted-foreground bg-secondary px-2 py-1 rounded">
