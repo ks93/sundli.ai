@@ -3,19 +3,22 @@
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { H1, LargeParagraph } from '@/components/ui/typography';
+import { cn } from '@/lib/utils';
 
 interface PageContainerProps {
   children: React.ReactNode;
   title: string;
   description?: string;
+  className?: string;
 }
 
-export function PageContainer({ children, title, description }: PageContainerProps) {
+export function PageContainer({ children, title, description, className }: PageContainerProps) {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
   return (
-    <div className="container max-w-3xl py-10">
+    <div className={cn('container max-w-3xl py-10', className)}>
       <div className="space-y-8">
         {!isHomePage && (
           <Link 
@@ -27,10 +30,8 @@ export function PageContainer({ children, title, description }: PageContainerPro
           </Link>
         )}
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">{title}</h1>
-          {description && (
-            <p className="text-xl text-muted-foreground">{description}</p>
-          )}
+          <H1>{title}</H1>
+          {description && <LargeParagraph>{description}</LargeParagraph>}
         </div>
         {children}
       </div>
