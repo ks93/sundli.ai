@@ -2,12 +2,10 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getEssayBySlug, getAllEssays } from '@/lib/mdx';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { PageContainer } from '@/components/layout/page-container';
 
 const styles = {
-  container: "container max-w-3xl py-10",
-  header: "mb-8",
-  title: "text-4xl font-bold mb-4",
-  description: "text-xl text-muted-foreground mb-4",
+  header: "space-y-4",
   tagContainer: "flex gap-2 mb-4",
   tag: "text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground",
   date: "text-sm text-muted-foreground",
@@ -60,12 +58,11 @@ export default async function EssayPage(props: PageProps) {
   }
 
   return (
-    <article className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{essay.frontmatter.title}</h1>
-        <p className={styles.description}>
-          {essay.frontmatter.description}
-        </p>
+    <PageContainer
+      title={essay.frontmatter.title}
+      description={essay.frontmatter.description}
+    >
+      <div className={styles.header}>
         <div className={styles.tagContainer}>
           {essay.frontmatter.tags.map((tag) => (
             <span
@@ -83,11 +80,11 @@ export default async function EssayPage(props: PageProps) {
             day: 'numeric',
           })}
         </time>
-      </header>
+      </div>
 
       <div className={styles.content}>
         <MDXRemote source={essay.content} />
       </div>
-    </article>
+    </PageContainer>
   );
 } 
