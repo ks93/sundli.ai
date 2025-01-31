@@ -6,6 +6,13 @@ import { usePathname } from 'next/navigation';
 import { H1, LargeParagraph } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
 
+const styles = {
+  container: "container max-w-3xl py-10",
+  content: "space-y-8",
+  backLink: "flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors",
+  header: "space-y-4"
+}
+
 interface PageContainerProps {
   children: React.ReactNode;
   title: string;
@@ -18,18 +25,18 @@ export function PageContainer({ children, title, description, className }: PageC
   const isHomePage = pathname === '/';
 
   return (
-    <div className={cn('container max-w-3xl py-10', className)}>
-      <div className="space-y-8">
+    <div className={cn(styles.container, className)}>
+      <div className={styles.content}>
         {!isHomePage && (
           <Link 
             href="/" 
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            className={styles.backLink}
           >
             <ArrowLeft size={16} />
             <span>Back home</span>
           </Link>
         )}
-        <div className="space-y-4">
+        <div className={styles.header}>
           <H1>{title}</H1>
           {description && <LargeParagraph>{description}</LargeParagraph>}
         </div>

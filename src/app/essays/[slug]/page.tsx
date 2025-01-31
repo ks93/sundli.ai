@@ -3,6 +3,17 @@ import { getEssayBySlug, getAllEssays } from '@/lib/mdx';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
+const styles = {
+  container: "container max-w-3xl py-10",
+  header: "mb-8",
+  title: "text-4xl font-bold mb-4",
+  description: "text-xl text-muted-foreground mb-4",
+  tagContainer: "flex gap-2 mb-4",
+  tag: "text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground",
+  date: "text-sm text-muted-foreground",
+  content: "prose dark:prose-invert max-w-none"
+}
+
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -49,23 +60,23 @@ export default async function EssayPage(props: PageProps) {
   }
 
   return (
-    <article className="container max-w-3xl py-10">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">{essay.frontmatter.title}</h1>
-        <p className="text-xl text-muted-foreground mb-4">
+    <article className={styles.container}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>{essay.frontmatter.title}</h1>
+        <p className={styles.description}>
           {essay.frontmatter.description}
         </p>
-        <div className="flex gap-2 mb-4">
+        <div className={styles.tagContainer}>
           {essay.frontmatter.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+              className={styles.tag}
             >
               {tag}
             </span>
           ))}
         </div>
-        <time className="text-sm text-muted-foreground">
+        <time className={styles.date}>
           {new Date(essay.frontmatter.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -74,7 +85,7 @@ export default async function EssayPage(props: PageProps) {
         </time>
       </header>
 
-      <div className="prose dark:prose-invert max-w-none">
+      <div className={styles.content}>
         <MDXRemote source={essay.content} />
       </div>
     </article>

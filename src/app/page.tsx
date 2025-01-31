@@ -1,29 +1,40 @@
 import Link from 'next/link';
 
+const styles = {
+  container: "h-full flex flex-col items-center justify-center space-y-8",
+  title: "text-4xl font-bold tracking-tight",
+  contentWrapper: "flex flex-col items-center space-y-4",
+  commandHint: "text-muted-foreground",
+  kbd: "px-2 py-1 text-sm rounded bg-secondary text-secondary-foreground",
+  linkContainer: "flex gap-4",
+  link: "text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors",
+  footer: "mt-12 text-sm text-muted-foreground"
+}
+
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <main className="h-full flex flex-col items-center justify-center space-y-8">
-      <h1 className="text-4xl font-bold tracking-tight">sundli.ai</h1>
+    <main className={styles.container}>
+      <h1 className={styles.title}>sundli.ai</h1>
       
-      <div className="flex flex-col items-center space-y-4">
-        <p className="text-muted-foreground">Press <kbd className="px-2 py-1 text-sm rounded bg-secondary text-secondary-foreground">⌘ K</kbd> to start</p>
+      <div className={styles.contentWrapper}>
+        <p className={styles.commandHint}>Press <kbd className={styles.kbd}>⌘ K</kbd> to start</p>
         
-        <div className="flex gap-4">
-          <Link href="/essays" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+        <div className={styles.linkContainer}>
+          <Link href="/essays" className={styles.link}>
             Essays
           </Link>
-          <Link href="/projects" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+          <Link href="/projects" className={styles.link}>
             Projects
           </Link>
-          <Link href="/contact" className="text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+          <Link href="/contact" className={styles.link}>
             Contact
           </Link>
         </div>
       </div>
 
-      <div className="mt-12 text-sm text-muted-foreground">
+      <div className={styles.footer}>
         <p>© {currentYear} Kelvin Sundli</p>
       </div>
     </main>
