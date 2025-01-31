@@ -64,7 +64,7 @@ export function CommandMenu() {
         <Dialog.Overlay className="fixed inset-0 bg-black/50 animate-fade-in" />
         <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] w-[90vw] bg-background border border-border rounded-lg shadow-lg p-2 animate-fade-in">
           <Dialog.Title className="sr-only">Command Menu</Dialog.Title>
-          <Command value={value} onValueChange={setValue} shouldFilter={true}>
+          <Command value={value} onValueChange={setValue} shouldFilter={true} loop={true}>
             <Command.Input 
               className="w-full bg-transparent border-none outline-none p-4 text-foreground placeholder:text-muted-foreground"
               placeholder="Type a command or search..." 
