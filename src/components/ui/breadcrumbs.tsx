@@ -24,13 +24,11 @@ const styles = {
 
 /**
  * Converts a URL segment into a human-readable label
- * Example: "my-blog-post" -> "My Blog Post"
+ * Example: "my-blog-post" -> "My blog post"
  */
 function formatSegmentLabel(segment: string): string {
-  return segment
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  const words = segment.split('-').join(' ');
+  return words.charAt(0).toUpperCase() + words.slice(1);
 }
 
 /**
