@@ -3,42 +3,59 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
+interface BreadcrumbItem {
+  path: string;
+  label: string;
+}
+
 interface BreadcrumbsProps {
   className?: string;
 }
 
+const styles = {
+  nav: "flex items-center gap-2 text-sm text-muted-foreground",
+  link: "flex items-center hover:text-primary transition-colors",
+  separator: "flex items-center",
+  icon: {
+    home: 16,
+    chevron: 14,
+  },
+} as const;
+
+/**
+ * Converts a URL segment into a human-readable label
+ * Example: "my-blog-post" -> "My Blog Post"
+ */
+function formatSegmentLabel(segment: string): string {
+  return segment
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+/**
+ * Breadcrumbs component that automatically generates navigation based on the current path
+ * Displays a home icon followed by the current path hierarchy with chevron separators
+ */
 export function Breadcrumbs({ className }: BreadcrumbsProps) {
   const pathname = usePathname();
   const segments = pathname.split('/').filter(Boolean);
 
-  // Generate breadcrumb items with proper links
-  const breadcrumbItems = segments.map((segment, index) => {
-    const path = `/${segments.slice(0, index + 1).join('/')}`;
-    // Convert slug to readable format (e.g., "my-post" -> "My Post")
-    const label = segment
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-
-    return { path, label };
-  });
+  const breadcrumbItems: BreadcrumbItem[] = segments.map((segment, index) => ({
+    path: `/${segments.slice(0, index + 1).join('/')}`,
+    label: formatSegmentLabel(segment),
+  }));
 
   return (
-    <nav className={cn("flex items-center gap-2 text-sm text-muted-foreground", className)}>
-      <Link
-        href="/"
-        className="flex items-center hover:text-primary transition-colors"
-      >
-        <Home size={16} />
+    <nav className={cn(styles.nav, className)}>
+      <Link href="/" className={styles.link}>
+        <Home size={styles.icon.home} />
       </Link>
       
       {breadcrumbItems.map((item) => (
-        <div key={item.path} className="flex items-center">
-          <ChevronRight size={14} className="mx-1" />
-          <Link
-            href={item.path}
-            className="hover:text-primary transition-colors"
-          >
+        <div key={item.path} className={styles.separator}>
+          <ChevronRight size={styles.icon.chevron} className="mx-1" />
+          <Link href={item.path} className={styles.link}>
             {item.label}
           </Link>
         </div>
