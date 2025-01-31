@@ -1,15 +1,13 @@
 'use client';
 
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { H1, LargeParagraph } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 
 const styles = {
   container: "container max-w-3xl py-10",
   content: "space-y-8",
-  backLink: "flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors",
   header: "space-y-4"
 }
 
@@ -27,15 +25,7 @@ export function PageContainer({ children, title, description, className }: PageC
   return (
     <div className={cn(styles.container, className)}>
       <div className={styles.content}>
-        {!isHomePage && (
-          <Link 
-            href="/" 
-            className={styles.backLink}
-          >
-            <ArrowLeft size={16} />
-            <span>Back home</span>
-          </Link>
-        )}
+        {!isHomePage && <Breadcrumbs />}
         <div className={styles.header}>
           <H1>{title}</H1>
           {description && <LargeParagraph>{description}</LargeParagraph>}
