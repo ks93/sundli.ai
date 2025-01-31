@@ -4,6 +4,17 @@ import { getAllEssays, type Essay } from '@/lib/mdx';
 import { Metadata } from 'next';
 import { PageContainer } from '@/components/layout/page-container';
 
+const styles = {
+  container: "space-y-8",
+  article: "group",
+  articleContent: "space-y-3",
+  title: "text-2xl font-semibold group-hover:text-primary transition-colors",
+  description: "text-muted-foreground",
+  tagContainer: "flex gap-2",
+  tag: "text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground",
+  date: "text-sm text-muted-foreground"
+}
+
 export const metadata: Metadata = {
   title: 'Essays | sundli.ai',
   description: 'Collection of essays on AI, software development, and technology',
@@ -25,28 +36,28 @@ export default async function EssaysPage() {
       title="Essays" 
       description="Collection of essays on AI, software development, and technology"
     >
-      <div className="space-y-8">
+      <div className={styles.container}>
         {sortedEssays.map((essay: Essay) => (
-          <article key={essay.slug} className="group">
+          <article key={essay.slug} className={styles.article}>
             <Link href={`/essays/${essay.slug}`}>
-              <div className="space-y-3">
-                <h2 className="text-2xl font-semibold group-hover:text-primary transition-colors">
+              <div className={styles.articleContent}>
+                <h2 className={styles.title}>
                   {essay.frontmatter.title}
                 </h2>
-                <p className="text-muted-foreground">
+                <p className={styles.description}>
                   {essay.frontmatter.description}
                 </p>
-                <div className="flex gap-2">
+                <div className={styles.tagContainer}>
                   {essay.frontmatter.tags.map((tag: string) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+                      className={styles.tag}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className={styles.date}>
                   {new Date(essay.frontmatter.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
