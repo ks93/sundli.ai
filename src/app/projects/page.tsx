@@ -1,8 +1,12 @@
+import { PageContainer } from '@/components/layout/page-container';
+
 export default function Projects() {
   return (
-    <main className="space-y-8">
-      <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+    <PageContainer 
+      title="Projects"
+      description="A collection of my personal and professional projects"
+    >
       <p className="text-muted-foreground">Coming soon...</p>
-    </main>
+    </PageContainer>
   );
 } 
