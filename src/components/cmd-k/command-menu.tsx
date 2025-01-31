@@ -79,9 +79,12 @@ export function CommandMenu() {
                     router.push(shortcut.onSelect())
                     setOpen(false)
                   }}
-                  className="p-4 rounded-md text-sm text-foreground hover:bg-secondary cursor-pointer"
+                  className="p-4 rounded-md text-sm text-foreground hover:bg-secondary cursor-pointer flex items-center justify-between"
                 >
-                  {shortcut.title}
+                  <span>{shortcut.title}</span>
+                  <kbd className="ml-auto text-xs text-muted-foreground bg-secondary px-2 py-1 rounded">
+                    ⌘ {shortcut.hotkey.toUpperCase()}
+                  </kbd>
                 </Command.Item>
               ))}
             </Command.List>
