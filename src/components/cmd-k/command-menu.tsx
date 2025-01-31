@@ -73,7 +73,7 @@ export function CommandMenu() {
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.content}>
           <Dialog.Title className="sr-only">Command Menu</Dialog.Title>
-          <Command value={value} onValueChange={setValue} shouldFilter={true}>
+          <Command value={value} onValueChange={setValue} shouldFilter={true} loop={true}>
             <Command.Input 
               className={styles.input}
               placeholder="Type a command or search..." 
