@@ -107,3 +107,10 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground));
 }
+
+/* P0c69 */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    display: none;
+  }
+}
