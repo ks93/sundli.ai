@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Footer } from '@/components/layout/footer';
 
 const styles = {
   container: "h-full flex flex-col items-center justify-center space-y-8",
@@ -7,12 +8,10 @@ const styles = {
   commandHint: "text-muted-foreground",
   kbd: "px-2 py-1 text-sm rounded bg-secondary text-secondary-foreground",
   linkContainer: "flex gap-4",
-  link: "text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors",
-  footer: "mt-12 text-sm text-muted-foreground"
+  link: "text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
 }
 
 export default function Home() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <main className={styles.container}>
@@ -34,9 +33,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.footer}>
-        <p>© {currentYear} Kelvin Sundli</p>
-      </div>
+      <Footer />
     </main>
   );
 }
