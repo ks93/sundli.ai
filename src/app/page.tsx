@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Footer } from '@/components/layout/footer';
 
 const styles = {
   container: "h-full flex flex-col items-center justify-center space-y-8",
@@ -12,7 +13,6 @@ const styles = {
 }
 
 export default function Home() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <main className={styles.container}>
@@ -34,9 +34,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.footer}>
-        <p>© {currentYear} Kelvin Sundli</p>
-      </div>
+      <Footer className={styles.footer} />
     </main>
   );
 }
