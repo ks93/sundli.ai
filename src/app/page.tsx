@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Footer } from '@/components/layout/footer'
 import { Space_Grotesk } from 'next/font/google'
+import { cn } from '@/lib/utils'
 
 const titleFont = Space_Grotesk({
   subsets: ['latin'],
@@ -22,7 +23,7 @@ const styles = {
 export default function Home() {
   return (
     <main className={styles.container}>
-      <h1 className={`${styles.title} ${titleFont.className}`}>sundli.ai</h1>
+      <h1 className={cn(styles.title, titleFont.className)}>sundli.ai</h1>
 
       <div className={styles.contentWrapper}>
         <p className={styles.commandHint}>

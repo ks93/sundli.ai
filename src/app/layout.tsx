@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { Space_Grotesk } from 'next/font/google'
+import { cn } from '@/lib/utils'
 import { CommandMenu } from '@/components/cmd-k/command-menu'
 import './globals.css'
 
@@ -31,10 +32,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark h-full scroll-smooth ${grotesk.className}`}
+      className={cn('dark h-full scroll-smooth', grotesk.className)}
     >
       <body
-        className={`${GeistSans.className} bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#151515] via-[#0b0717] to-black text-white antialiased min-h-screen`}
+        className={cn(
+          GeistSans.className,
+          'bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#151515] via-[#0b0717] to-black text-white antialiased min-h-screen',
+        )}
       >
         <main className="mx-auto max-w-4xl px-4 py-8 min-h-screen flex flex-col">
           {children}
