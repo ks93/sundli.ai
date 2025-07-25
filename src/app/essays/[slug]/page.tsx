@@ -1,38 +1,38 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getEssayBySlug, getAllEssays } from '@/lib/mdx';
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { PageContainer } from '@/components/layout/page-container';
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { getEssayBySlug, getAllEssays } from '@/lib/mdx'
+import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
+import { PageContainer } from '@/components/layout/page-container'
 
 const styles = {
-  header: "space-y-4",
-  tagContainer: "flex gap-2 mb-4",
-  tag: "text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground",
-  date: "text-sm text-muted-foreground",
-  content: "prose dark:prose-invert max-w-none"
+  header: 'space-y-4',
+  tagContainer: 'flex gap-2 mb-4',
+  tag: 'text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground',
+  date: 'text-sm text-muted-foreground',
+  content: 'prose dark:prose-invert max-w-none',
 }
 
 type PageProps = {
-  params: Promise<{ slug: string }>;
-};
+  params: Promise<{ slug: string }>
+}
 
 // This generates all possible essay paths at build time
 export async function generateStaticParams() {
-  const essays = await getAllEssays();
+  const essays = await getAllEssays()
   return essays.map((essay) => ({
     slug: essay.slug,
-  }));
+  }))
 }
 
 // Generate metadata for each essay
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
-  const { slug } = await props.params;
-  const essay = await getEssayBySlug(slug);
-  
+  const { slug } = await props.params
+  const essay = await getEssayBySlug(slug)
+
   if (!essay) {
     return {
       title: 'Essay Not Found',
-    };
+    }
   }
 
   return {
@@ -46,15 +46,15 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       authors: ['Kelvin Sundli'],
       tags: essay.frontmatter.tags,
     },
-  };
+  }
 }
 
 export default async function EssayPage(props: PageProps) {
-  const { slug } = await props.params;
-  const essay = await getEssayBySlug(slug);
+  const { slug } = await props.params
+  const essay = await getEssayBySlug(slug)
 
   if (!essay) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -65,10 +65,7 @@ export default async function EssayPage(props: PageProps) {
       <div className={styles.header}>
         <div className={styles.tagContainer}>
           {essay.frontmatter.tags.map((tag) => (
-            <span
-              key={tag}
-              className={styles.tag}
-            >
+            <span key={tag} className={styles.tag}>
               {tag}
             </span>
           ))}
@@ -86,5 +83,5 @@ export default async function EssayPage(props: PageProps) {
         <MDXRemote source={essay.content} />
       </div>
     </PageContainer>
-  );
-} 
+  )
+}
