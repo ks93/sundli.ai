@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { PageContainer } from '@/components/layout/page-container';
+import Link from 'next/link'
+import { PageContainer } from '@/components/layout/page-container'
 
 export default function NotFound() {
   return (
@@ -14,5 +14,5 @@ export default function NotFound() {
         Go back home
       </Link>
     </PageContainer>
-  );
+  )
 }

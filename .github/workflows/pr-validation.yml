@@ -2,7 +2,7 @@ name: PR Validation
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ['main']
 
 jobs:
   validate:
@@ -13,19 +13,22 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Lint
         run: npm run lint
-        
+
+      - name: Format check
+        run: npm run format:check
+
       - name: Type check
         run: npm run typecheck || npm run check-types || true
-        
+
       - name: Build
         run: npm run build
-        
+
       # Uncomment if you have tests
       # - name: Test
-      #   run: npm test 
+      #   run: npm test
