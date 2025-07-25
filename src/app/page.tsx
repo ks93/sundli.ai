@@ -8,8 +8,7 @@ const styles = {
   commandHint: "text-muted-foreground",
   kbd: "px-2 py-1 text-sm rounded bg-secondary text-secondary-foreground",
   linkContainer: "flex gap-4",
-  link: "text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors",
-  footer: "mt-12 text-sm text-muted-foreground"
+  link: "text-sm px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
 }
 
 export default function Home() {
@@ -34,7 +33,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer className={styles.footer} />
+      <Footer />
     </main>
   );
 }
