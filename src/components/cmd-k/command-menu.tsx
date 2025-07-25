@@ -33,15 +33,16 @@ const shortcuts = [
 ]
 
 const styles = {
-  overlay: 'fixed inset-0 bg-black/50 animate-fade-in',
+  overlay:
+    'fixed inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80 backdrop-blur-sm animate-fade-in',
   content:
-    'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] w-[90vw] bg-background border border-border rounded-lg shadow-lg p-2 animate-fade-in',
+    'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] w-[90vw] bg-background/80 backdrop-blur-md border border-border/60 rounded-xl shadow-xl p-2 animate-fade-in',
   input:
     'w-full bg-transparent border-none outline-none p-4 text-foreground placeholder:text-muted-foreground',
   empty: 'p-4 text-sm text-muted-foreground',
-  item: 'p-4 rounded-md text-sm text-foreground hover:bg-secondary cursor-pointer flex items-center justify-between data-[selected=true]:bg-secondary',
+  item: 'p-4 rounded-md text-sm text-foreground hover:bg-secondary/80 cursor-pointer flex items-center justify-between data-[selected=true]:bg-secondary transition-colors',
   hotkey:
-    'ml-auto text-xs text-muted-foreground bg-secondary px-2 py-1 rounded',
+    'ml-auto text-xs text-primary bg-primary/20 px-2 py-1 rounded transition-colors',
 }
 
 export function CommandMenu() {
