@@ -361,6 +361,7 @@ img {
 }
 .site-footer {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
@@ -398,4 +399,37 @@ img {
   * {
     transition: none !important;
   }
+}
+
+/* A quiet home signature and an actual editorial use for the mark. */
+.footer-signature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+}
+.brand-mark {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: currentColor;
+  -webkit-mask: url('/brand/mark.svg') center / contain no-repeat;
+  mask: url('/brand/mark.svg') center / contain no-repeat;
+}
+.prose .footnotes::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 1rem;
+  background: var(--accent);
+  -webkit-mask: url('/brand/mark-micro.svg') center / contain no-repeat;
+  mask: url('/brand/mark-micro.svg') center / contain no-repeat;
 }

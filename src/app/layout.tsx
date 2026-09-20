@@ -27,16 +27,16 @@ export default function RootLayout({
               className="brand-light"
               src="/brand/wordmark-ink.svg"
               alt=""
-              width={184}
-              height={58}
+              width={475}
+              height={144}
               priority
             />
             <Image
               className="brand-dark"
               src="/brand/wordmark-white.svg"
               alt=""
-              width={184}
-              height={58}
+              width={475}
+              height={144}
               priority
             />
           </Link>

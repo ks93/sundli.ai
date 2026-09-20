@@ -5,17 +5,13 @@ import { getAllEssays } from '@/lib/essays'
 
 export const metadata: Metadata = {
   title: 'Essays',
-  description:
-    'Notes on AI, technology, and the assumptions worth questioning.',
+  description: 'Essays by Kelvin Sundli.',
   alternates: { canonical: '/essays' },
 }
 
 export default function EssaysPage() {
   return (
-    <PageContainer
-      title="Essays"
-      description="Notes on AI, technology, and the assumptions worth questioning."
-    >
+    <PageContainer title="Essays">
       <EssayList essays={getAllEssays()} />
     </PageContainer>
   )

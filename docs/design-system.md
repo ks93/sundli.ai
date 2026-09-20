@@ -10,3 +10,9 @@ The sundli.ai identity uses Manrope and a six-ray asterisk with an aligned, deta
 - **Logo:** keep the signature at least 140px wide, leave clear space, and preserve the asterisk geometry. Use ink on light surfaces and white on dark.
 
 The header retains “Contact” to preserve the existing site's information and URL. Manrope is self-hosted, so the design does not depend on a Google Fonts request. The page content is server rendered into a static export; only the active navigation marker needs a small client component.
+
+## Where the asterisk appears
+
+Use the micro mark for the browser favicon and small editorial marks. The browser SVG adapts to light/dark mode; the ICO fallback and Apple touch icon use the same identity. The footer uses a softened asterisk as a 44px-target home link with an accessible label. Posts with Markdown footnotes gain a small asterisk at the start of their notes; numbered references and backlinks remain intact.
+
+The wordmark is not clipped: its 475 × 144 viewBox includes clear space on all four sides. The detached upper-right tip is intentional. Preserve the full image aspect ratio and do not crop the SVG to imitate that break.

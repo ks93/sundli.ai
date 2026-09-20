@@ -12,9 +12,6 @@ export default function Home() {
           <br />
           and the occasional exception.
         </h1>
-        <p className="lede">
-          Notes on AI, technology, and the assumptions worth questioning.
-        </p>
       </header>
       <section aria-labelledby="latest-essays">
         <div className="section-heading">

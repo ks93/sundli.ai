@@ -62,9 +62,9 @@ PRs run the same checks. The production output is `out/`, ready for GitHub Pages
 ## Where things live
 
 - `src/content/essays/*.md` — posts. The existing essay keeps its original URL.
-- `src/app/` — homepage, essays, projects, contact, and the existing ASU feedback redirect.
+- `src/app/` — homepage, essays, projects, and contact.
 - `src/app/globals.css` — Quiet Exception colors, type, layout, and reading styles.
-- `public/brand/` — outlined Manrope wordmarks and the softened asterisk.
+- `public/brand/` — outlined Manrope wordmarks and softened/micro asterisks.
 - `public/fonts/` — self-hosted Manrope and its OFL license.
 - `scripts/new-post.mjs` — the optional post generator.
 - `docs/design-system.md` — the design decisions used by the site.
