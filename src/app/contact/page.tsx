@@ -13,9 +13,6 @@ export default function Contact() {
         <li>
           <a href="mailto:kelvin@sundli.ai">kelvin@sundli.ai</a>
         </li>
-        <li>
-          <a href="tel:+4799344356">+47 993 44 356</a>
-        </li>
       </ul>
     </PageContainer>
   )
