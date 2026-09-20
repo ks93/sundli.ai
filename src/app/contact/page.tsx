@@ -1,13 +1,22 @@
+import type { Metadata } from 'next'
 import { PageContainer } from '@/components/layout/page-container'
-import { List, ListItem } from '@/components/ui/list'
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  alternates: { canonical: '/contact' },
+}
 
 export default function Contact() {
   return (
     <PageContainer title="Get in touch">
-      <List>
-        <ListItem>kelvin[at]sundli.ai</ListItem>
-        <ListItem>+47 993 44 356</ListItem>
-      </List>
+      <ul className="contact-list">
+        <li>
+          <a href="mailto:kelvin@sundli.ai">kelvin@sundli.ai</a>
+        </li>
+        <li>
+          <a href="tel:+4799344356">+47 993 44 356</a>
+        </li>
+      </ul>
     </PageContainer>
   )
 }

@@ -1,33 +1,51 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { CommandMenu } from '@/components/cmd-k/command-menu'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Footer } from '@/components/layout/footer'
+import { Navigation } from '@/components/layout/navigation'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Kelvin Sundli',
-  description: 'Personal website of Kelvin Sundli',
-  icons: {
-    icon: [
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-  },
+  metadataBase: new URL('https://sundli.ai'),
+  title: { default: 'Kelvin Sundli — sundli.ai', template: '%s | sundli.ai' },
+  description: 'Writing and projects by Kelvin Sundli.',
+  icons: { icon: '/icon.svg', apple: '/apple-touch-icon.png' },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark h-full">
-      <body
-        className={`${GeistSans.className} bg-black text-white antialiased h-full`}
-      >
-        <main className="mx-auto max-w-4xl px-4 py-8 h-full">{children}</main>
-        <CommandMenu />
+    <html lang="en">
+      <body>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <header className="site-header container">
+          <Link className="brand" href="/" aria-label="sundli.ai home">
+            <Image
+              className="brand-light"
+              src="/brand/wordmark-ink.svg"
+              alt=""
+              width={184}
+              height={58}
+              priority
+            />
+            <Image
+              className="brand-dark"
+              src="/brand/wordmark-white.svg"
+              alt=""
+              width={184}
+              height={58}
+              priority
+            />
+          </Link>
+          <Navigation />
+        </header>
+        <main id="main" className="container" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

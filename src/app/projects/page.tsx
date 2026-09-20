@@ -1,12 +1,18 @@
+import type { Metadata } from 'next'
 import { PageContainer } from '@/components/layout/page-container'
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  alternates: { canonical: '/projects' },
+}
 
 export default function Projects() {
   return (
     <PageContainer
       title="Projects"
-      description="A collection of my personal and professional projects"
+      description="Experiments and things worth sharing."
     >
-      <p className="text-muted-foreground">Coming soon...</p>
+      <p className="muted">More to come.</p>
     </PageContainer>
   )
 }
