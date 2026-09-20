@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    path { fill: #000000; }
-    @media (prefers-color-scheme: dark) {
-      path { fill: #ffffff; }
-    }
-  </style>
-  <path d="M8 4v24h2V16.5l12 11.5h4L14 16l12-12h-4L10 15.5V4z"/>
-</svg> 
+<svg xmlns="http://www.w3.org/2000/svg" width="336" height="336" viewBox="0 0 336 336" role="img"><title>sundli.ai</title><style>:root{color:#20231F}@media(prefers-color-scheme:dark){:root{color:#F0F2ED}}</style><g fill="currentColor"><g transform="translate(168 168) rotate(0)"><rect x="-23.0" y="-150" width="46" height="170" rx="0"/></g><g transform="translate(168 168) rotate(60)"><rect x="-23.0" y="-66" width="46" height="86" rx="0"/><rect x="-23.0" y="-150" width="46" height="46" rx="0"/></g><g transform="translate(168 168) rotate(120)"><rect x="-23.0" y="-150" width="46" height="170" rx="0"/></g><g transform="translate(168 168) rotate(180)"><rect x="-23.0" y="-150" width="46" height="170" rx="0"/></g><g transform="translate(168 168) rotate(240)"><rect x="-23.0" y="-150" width="46" height="170" rx="0"/></g><g transform="translate(168 168) rotate(300)"><rect x="-23.0" y="-150" width="46" height="170" rx="0"/></g></g></svg>

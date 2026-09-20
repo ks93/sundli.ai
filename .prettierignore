@@ -1,0 +1,6 @@
+.next/
+out/
+node_modules/
+public/brand/
+public/icon.svg
+public/fonts/
