@@ -433,3 +433,10 @@ img {
   -webkit-mask: url('/brand/mark-micro.svg') center / contain no-repeat;
   mask: url('/brand/mark-micro.svg') center / contain no-repeat;
 }
+
+/* P0c69 */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    display: none;
+  }
+}
